@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Recommender • TMDb + OMDb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <div class="brand">
+                <div class="logo">🎬</div>
+                <div class="title">Movie Recommender</div>
+            </div>
+            <form id="searchForm" class="searchbar" autocomplete="off">
+                <input id="searchInput" placeholder="Search a movie (e.g., Baahubali, Inception, RRR, KGF)…" />
+                <button type="submit">Find Recommendations</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <section class="panel" id="movieDetails">
+            <div class="section-title">
+                <h2>Movie Details</h2>
+                <span id="selYear" class="badge" style="display:none"></span>
+            </div>
+            <div id="details" class="details">
+                <div class="poster" id="posterHolder">No movie selected</div>
+                <div>
+                    <h1 id="title" style="margin:0 0 6px 0; font-size:1.3rem"></h1>
+                    <div id="tagline" style="color:#9ca3af; font-size:.95rem; margin-bottom:8px"></div>
+                    <div class="kv">
+                        <div><span class="label">Director</span><span id="director">—</span></div>
+                        <div><span class="label">Genres</span><span id="genres">—</span></div>
+                        <div><span class="label">Runtime</span><span id="runtime">—</span></div>
+                        <div><span class="label">Rating</span><span id="rating">—</span></div>
+                        <div><span class="label">Release</span><span id="release">—</span></div>
+                        <div><span class="label">Language</span><span id="language">—</span></div>
+                    </div>
+                    <p id="overview" style="margin-top:10px; line-height:1.6"></p>
+                    <div id="links" style="margin-top:8px; display:flex; gap:10px; flex-wrap:wrap"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="recommendationsSection">
+            <div class="section-title">
+                <h2>Recommended Movies</h2>
+                <span id="recCount" class="badge" style="display:none"></span>
+            </div>
+            <div id="recommendations" class="results"></div>
+            <div id="recEmpty" class="empty">Search a movie to see recommendations.</div>
+        </section>
+    </main>
+
+    <script th:src="@{/js/app.js}"></script>
+</body>
+</html>
