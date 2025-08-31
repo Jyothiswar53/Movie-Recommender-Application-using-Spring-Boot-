@@ -1,0 +1,13 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "java -jar target/movie-recommender-0.0.1-SNAPSHOT.jar"
+  },
+  "envs": {
+    "OMDB_API_KEY": "3941c8d4",
+    "TMDB_API_KEY": "264cdaf88bd9c6bd2e7b654e16e1ffeb",
+    "PORT": "8080"
+  }
+}
