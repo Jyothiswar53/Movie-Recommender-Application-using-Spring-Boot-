@@ -1,13 +1,20 @@
 {
+  "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS"
+    "builder": "RAILPACK"
   },
   "deploy": {
-    "startCommand": "java -jar target/movie-recommender-0.0.1-SNAPSHOT.jar"
-  },
-  "envs": {
-    "OMDB_API_KEY": "3941c8d4",
-    "TMDB_API_KEY": "264cdaf88bd9c6bd2e7b654e16e1ffeb",
-    "PORT": "8080"
+    "runtime": "V2",
+    "numReplicas": 1,
+    "startCommand": "npm run start",
+    "sleepApplication": false,
+    "useLegacyStacker": false,
+    "multiRegionConfig": {
+      "asia-southeast1-eqsg3a": {
+        "numReplicas": 1
+      }
+    },
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
   }
 }
