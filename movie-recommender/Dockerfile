@@ -1,9 +1,9 @@
-FROM openjdk:17-jdk-alpine
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /movie-recommender
 
-COPY target/movie-recommender-0.0.1-SNAPSHOT.jar movie-recommender.jar
+COPY . .
 
-EXPOSE 8080
+RUN ./mvnw package -DskipTests
 
-ENTRYPOINT ["java", "-jar", "movie-recommender.jar"]
+CMD ["java", "-jar", "target/movie-recommender-0.0.1-SNAPSHOT.jar"]
